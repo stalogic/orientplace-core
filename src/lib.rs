@@ -8,27 +8,27 @@ fn calc_single_wire_img(node_net_info: HashMap<String, (usize, usize, usize, usi
         for i in 0..*start_x {
             let delta_hpwl: f32 = (start_x - i) as f32 * weight;
             for j in 0..grid {
-                wire_img[i][j] = delta_hpwl;
+                wire_img[i][j] += delta_hpwl;
             }
         }
         for j in 0..*start_y {
             let delta_hpwl: f32 = (start_y - j) as f32 * weight;
             for i in 0..grid {
-                wire_img[i][j] = delta_hpwl;
+                wire_img[i][j] += delta_hpwl;
             }
         }
 
         for i in *end_x..grid {
             let delta_hpwl: f32 = (i - end_x + *base_offset_x) as f32 * weight;
             for j in 0..grid {
-                wire_img[i][j] = delta_hpwl;
+                wire_img[i][j] += delta_hpwl;
             }
         }
 
         for j in *end_y..grid {
             let delta_hpwl: f32 = (j - end_y + *base_offset_y) as f32 * weight;
             for i in 0..grid {
-                wire_img[i][j] = delta_hpwl;
+                wire_img[i][j] += delta_hpwl;
             }
         }
     }
